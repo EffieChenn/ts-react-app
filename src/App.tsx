@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+// type TitleProps = {
+//   name: string;
+// }
+
+interface TitleProps{
+  name: string;
+}
+interface TitleProps{
+  desc?: string;           //可擴充
+}
+
+const Title: React.FC<TitleProps> = ({name, desc}) => {
+  return <p>{name}</p>
+}
+
+const App: React.FC = () => {
+  const [title, setTitle] = useState<number | string>(9999);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title name='abcd' desc='12345'/>
     </div>
   );
 }
